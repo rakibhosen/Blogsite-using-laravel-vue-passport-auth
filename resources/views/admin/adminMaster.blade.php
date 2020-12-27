@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Blog Admin</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  
+</head>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper" id="app">
+  <!-- Navbar -->
+
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{ asset('backend/images/default/default.png') }}" class="img-circle elevation-2">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{ Auth::user('admin')->name }}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+               <li class="nav-item">
+                <router-link to="/admin" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                   Dashboard 
+                  </p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/admin/post-list" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                   Post
+                    
+                  </p>
+                </router-link>
+              </li>
+          <li class="nav-item">
+            <router-link to="/admin/category-list" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               category
+                
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/admin/users" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              All Users
+                
+              </p>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/admin/subscriber-list" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              All Subscriber
+                
+              </p>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/admin/about-list" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              About Us
+                
+              </p>
+            </router-link>
+          </li>
+
+
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user('admin')->name }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a style="color: rgb(0 0 0);;" class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+         
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+
+    <!-- Main content -->
+    {{--  <admin-main></admin-main>  --}}
+    <admin-main></admin-main>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      {{--  <b>Version</b> 3.0.0  --}}
+    </div>
+    {{--  <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.  --}}
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+
+<script src="{{ asset('js/app.js') }}" defer></script>
+</body>
+</html>
